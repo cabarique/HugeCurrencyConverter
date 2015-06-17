@@ -8,11 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		DA602EA51B30F778008B2FCA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA602EA41B30F778008B2FCA /* AppDelegate.swift */; };
-		DA602EA71B30F778008B2FCA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA602EA61B30F778008B2FCA /* ViewController.swift */; };
 		DA602EAA1B30F778008B2FCA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA602EA81B30F778008B2FCA /* Main.storyboard */; };
 		DA602EAC1B30F778008B2FCA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA602EAB1B30F778008B2FCA /* Images.xcassets */; };
 		DA602EAF1B30F778008B2FCA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA602EAD1B30F778008B2FCA /* LaunchScreen.xib */; };
 		DA602EBB1B30F778008B2FCA /* HugeCurrencyConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA602EBA1B30F778008B2FCA /* HugeCurrencyConverterTests.swift */; };
+		DAC0FAB81B311C3400BC271D /* CurrencyConverterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC0FAB71B311C3400BC271D /* CurrencyConverterViewController.swift */; };
+		DAC0FABC1B311D2B00BC271D /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC0FABB1B311D2B00BC271D /* Currency.swift */; };
+		DAC0FAC11B31202B00BC271D /* BRL.png in Resources */ = {isa = PBXBuildFile; fileRef = DAC0FABD1B31202B00BC271D /* BRL.png */; };
+		DAC0FAC21B31202B00BC271D /* EUR.png in Resources */ = {isa = PBXBuildFile; fileRef = DAC0FABE1B31202B00BC271D /* EUR.png */; };
+		DAC0FAC31B31202B00BC271D /* GBP.png in Resources */ = {isa = PBXBuildFile; fileRef = DAC0FABF1B31202B00BC271D /* GBP.png */; };
+		DAC0FAC41B31202B00BC271D /* USD.png in Resources */ = {isa = PBXBuildFile; fileRef = DAC0FAC01B31202B00BC271D /* USD.png */; };
+		DAC0FAC61B31210F00BC271D /* JPY.png in Resources */ = {isa = PBXBuildFile; fileRef = DAC0FAC51B31210F00BC271D /* JPY.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,13 +35,19 @@
 		DA602E9F1B30F778008B2FCA /* HugeCurrencyConverter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HugeCurrencyConverter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA602EA31B30F778008B2FCA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DA602EA41B30F778008B2FCA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DA602EA61B30F778008B2FCA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		DA602EA91B30F778008B2FCA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DA602EAB1B30F778008B2FCA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		DA602EAE1B30F778008B2FCA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		DA602EB41B30F778008B2FCA /* HugeCurrencyConverterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HugeCurrencyConverterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA602EB91B30F778008B2FCA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DA602EBA1B30F778008B2FCA /* HugeCurrencyConverterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HugeCurrencyConverterTests.swift; sourceTree = "<group>"; };
+		DAC0FAB71B311C3400BC271D /* CurrencyConverterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyConverterViewController.swift; sourceTree = "<group>"; };
+		DAC0FABB1B311D2B00BC271D /* Currency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
+		DAC0FABD1B31202B00BC271D /* BRL.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BRL.png; sourceTree = "<group>"; };
+		DAC0FABE1B31202B00BC271D /* EUR.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = EUR.png; sourceTree = "<group>"; };
+		DAC0FABF1B31202B00BC271D /* GBP.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GBP.png; sourceTree = "<group>"; };
+		DAC0FAC01B31202B00BC271D /* USD.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = USD.png; sourceTree = "<group>"; };
+		DAC0FAC51B31210F00BC271D /* JPY.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = JPY.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,8 +90,9 @@
 			isa = PBXGroup;
 			children = (
 				DA602EA41B30F778008B2FCA /* AppDelegate.swift */,
-				DA602EA61B30F778008B2FCA /* ViewController.swift */,
+				DAC0FAB71B311C3400BC271D /* CurrencyConverterViewController.swift */,
 				DA602EA81B30F778008B2FCA /* Main.storyboard */,
+				DAC0FABB1B311D2B00BC271D /* Currency.swift */,
 				DA602EAB1B30F778008B2FCA /* Images.xcassets */,
 				DA602EAD1B30F778008B2FCA /* LaunchScreen.xib */,
 				DA602EA21B30F778008B2FCA /* Supporting Files */,
@@ -90,6 +103,11 @@
 		DA602EA21B30F778008B2FCA /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				DAC0FAC51B31210F00BC271D /* JPY.png */,
+				DAC0FABD1B31202B00BC271D /* BRL.png */,
+				DAC0FABE1B31202B00BC271D /* EUR.png */,
+				DAC0FABF1B31202B00BC271D /* GBP.png */,
+				DAC0FAC01B31202B00BC271D /* USD.png */,
 				DA602EA31B30F778008B2FCA /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -161,6 +179,7 @@
 				TargetAttributes = {
 					DA602E9E1B30F777008B2FCA = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = N3TK924TRG;
 					};
 					DA602EB31B30F778008B2FCA = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -192,7 +211,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAC0FAC41B31202B00BC271D /* USD.png in Resources */,
+				DAC0FAC21B31202B00BC271D /* EUR.png in Resources */,
+				DAC0FAC31B31202B00BC271D /* GBP.png in Resources */,
+				DAC0FAC61B31210F00BC271D /* JPY.png in Resources */,
 				DA602EAA1B30F778008B2FCA /* Main.storyboard in Resources */,
+				DAC0FAC11B31202B00BC271D /* BRL.png in Resources */,
 				DA602EAF1B30F778008B2FCA /* LaunchScreen.xib in Resources */,
 				DA602EAC1B30F778008B2FCA /* Images.xcassets in Resources */,
 			);
@@ -212,7 +236,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA602EA71B30F778008B2FCA /* ViewController.swift in Sources */,
+				DAC0FABC1B311D2B00BC271D /* Currency.swift in Sources */,
+				DAC0FAB81B311C3400BC271D /* CurrencyConverterViewController.swift in Sources */,
 				DA602EA51B30F778008B2FCA /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -337,6 +362,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = HugeCurrencyConverter/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -347,6 +373,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = HugeCurrencyConverter/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -405,6 +432,7 @@
 				DA602EC01B30F778008B2FCA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DA602EC11B30F778008B2FCA /* Build configuration list for PBXNativeTarget "HugeCurrencyConverterTests" */ = {
 			isa = XCConfigurationList;
@@ -413,6 +441,7 @@
 				DA602EC31B30F778008B2FCA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
