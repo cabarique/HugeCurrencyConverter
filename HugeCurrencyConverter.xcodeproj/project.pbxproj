@@ -91,8 +91,8 @@
 			children = (
 				DA602EA41B30F778008B2FCA /* AppDelegate.swift */,
 				DAC0FAB71B311C3400BC271D /* CurrencyConverterViewController.swift */,
-				DA602EA81B30F778008B2FCA /* Main.storyboard */,
 				DAC0FABB1B311D2B00BC271D /* Currency.swift */,
+				DA602EA81B30F778008B2FCA /* Main.storyboard */,
 				DA602EAB1B30F778008B2FCA /* Images.xcassets */,
 				DA602EAD1B30F778008B2FCA /* LaunchScreen.xib */,
 				DA602EA21B30F778008B2FCA /* Supporting Files */,

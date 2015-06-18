@@ -14,13 +14,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     var currencies = [Currency]()
-    var base = "USD"
+    var base = "USD" //Current base is USD
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        println(window)
-        let url = NSURL(string: "http://api.fixer.io/latest?base=\(base)")
+        let url = NSURL(string: "http://api.fixer.io/latest?base=\(base)") //fixer currency api
         var done = dispatch_semaphore_create(0);
         
         let task = NSURLSession.sharedSession().dataTaskWithURL(url!) {(data, response, error) in
@@ -35,12 +34,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
             else {
                 if let parseJSON = json {
-                    //println(parseJSON)
-                    // Okay, the parsedJSON is here, let's get the value for 'success' out of it
+                    // Okay, the parsedJSON is here, let's get the value for 'rates' out of it
                     let ratesArray = parseJSON["rates"] as NSDictionary
                     for (rateName, rate) in ratesArray {
-                        let currency = Currency(id: rateName as String, rate: rate as Double)
-                        self.currencies.append(currency)
+                        let id = rateName as NSString
+                        if(id == "GBP" || id == "EUR" || id == "JPY" || id  == "BRL"){
+                            let currency = Currency(id: id, rate: rate as Double)
+                            self.currencies.append(currency)
+                        }
                     }
                     
                     let currencyController = self.window?.rootViewController as CurrencyConverterController
@@ -57,8 +58,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         
-        task.resume()
-        dispatch_semaphore_wait(done, DISPATCH_TIME_FOREVER);
+        task.resume() //resumes the http request
+        dispatch_semaphore_wait(done, DISPATCH_TIME_FOREVER); //dispatch semaphone
         return true
     }
     
