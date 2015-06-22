@@ -33,9 +33,11 @@ class CurrencyConverterController: UIViewController, UITableViewDelegate, UITabl
         // Dispose of any resources that can be recreated.
     }
     
+    /// fixes bug that cause the keyboard to stick on the screen
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
         self.view.endEditing(true)
     }
+    
     /// Get input currency value
     /// :param: sender
     @IBAction func valueChanged(sender: UITextField) {
@@ -82,22 +84,20 @@ class CurrencyConverterController: UIViewController, UITableViewDelegate, UITabl
         cell.detailTextLabel?.text = String(format:"%.3f", rate)
         cell.imageView?.image = image
         var label = cell.viewWithTag(110) as! UILabel
-        label.text = currency.id
+        label.text = currency.name
         //label.text = "\(label.frame.origin.x) \(label.frame.origin.y) \(currency.id)"
         //label.frame.origin = CGPoint(x: 15, y: 15)
         
         return cell
     }
     
-    
-    
-    /// select cell and navigates to currency selector
+    /*/// select cell and navigates to currency selector
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         //tableView.beginUpdates()
         //tableView.endUpdates()
         
-    }
+    }*/
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         if segue.identifier == "currencyList" {
@@ -106,6 +106,7 @@ class CurrencyConverterController: UIViewController, UITableViewDelegate, UITabl
         }
     }
     
+    /// sets the updated currency list
     override func viewWillAppear(animated: Bool) {
         self.currencies = AppDelegate.currencies.currencies
         self.currencyTableView.reloadData()

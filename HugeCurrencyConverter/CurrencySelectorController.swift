@@ -39,6 +39,7 @@ class CurrencySelectorController: UITableViewController{
         // Configure the cell...
         var currency = currencyList[indexPath.row]
         cell.textLabel?.text = currency.id
+        cell.detailTextLabel?.text = currency.name
         if(currency.favorite){
             cell.accessoryType = UITableViewCellAccessoryType.Checkmark
         }else{
@@ -64,14 +65,10 @@ class CurrencySelectorController: UITableViewController{
         let cell = tableView.dequeueReusableCellWithIdentifier("currencyCell", forIndexPath: indexPath) as! UITableViewCell
         
         cell.textLabel?.text = currencyList[indexPath.row].id
-        cell.contentView.backgroundColor = hugeColor
-        //cell.contentView.superview?.backgroundColor = hugeColor
-
-        //cell.contentView.superview?.backgroundColor = .whiteColor()
         
         tableView.endUpdates()
 
-        tableView.reloadData()
+        tableView.reloadData()//reloads list
     }
     
     override func tableView(tableView: UITableView, moveRowAtIndexPath sourceIndexPath: NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath) {

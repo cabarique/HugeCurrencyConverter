@@ -13,4 +13,5 @@ struct Currency {
     let id: String
     let rate: Double
     var favorite: Bool
+    var name: String
 }

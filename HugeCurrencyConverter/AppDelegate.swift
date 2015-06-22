@@ -13,59 +13,101 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var base = "USD" //Current base is USD
+    let latestCurrencyURL : String = "http://api.fixer.io/latest?base=USD" //latest currency rates url
+    let currenciesNAmesURL : String = "http://openexchangerates.org/currencies.json" //currency names
     
-    struct currencies {
+    struct currencies {//currency arrays
         static var currencies = [Currency]()
+        static var currenciesNames = NSDictionary()
     }
-
-
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
-        let url = NSURL(string: "http://api.fixer.io/latest?base=\(base)") //fixer currency api
-        var done = dispatch_semaphore_create(0);
-        
-        let task = NSURLSession.sharedSession().dataTaskWithURL(url!) {(data, response, error) in
-            //println(NSString(data: data, encoding: NSUTF8StringEncoding))
-            var err: NSError?
-            var json = NSJSONSerialization.JSONObjectWithData(data, options: .MutableLeaves, error: &err) as? NSDictionary
-            
-            if(err != nil) {
-                println(err!.localizedDescription)
-                let jsonStr = NSString(data: data, encoding: NSUTF8StringEncoding)
-                println("Error could not parse JSON: '\(jsonStr)'")
-                    dispatch_semaphore_signal(done);
-            }
-            else {
-                if let parseJSON = json {
-                    // Okay, the parsedJSON is here, let's get the value for 'rates' out of it
-                    let ratesArray = parseJSON["rates"] as! NSDictionary
-                    for (rateName, rate) in ratesArray {
-                        let id = rateName as! NSString
-                        var favorite = false
-                        if(id == "GBP" || id == "EUR" || id == "JPY" || id  == "BRL"){
-                            favorite = true
-                        }
-                        var currency = Currency(id: id as String, rate: rate as! Double, favorite: favorite)
-                        currencies.currencies.append(currency)
-                    }
-                    
-                    //let currencyController = self.window?.rootViewController as! CurrencyConverterController
-                    //currencyController.currencies = self.currencies
-                    
-                    dispatch_semaphore_signal(done);
+    
+    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
+        // Just send a request and call the when finished closure
+        func sendRequest(url: String, whenFinished: () -> Void) {
+            let request = NSMutableURLRequest(URL: NSURL(string: url)!)
+            let task  = NSURLSession.sharedSession().dataTaskWithRequest(request, completionHandler: {
+                (data, response, error) -> Void in
+                whenFinished()
+                    //println(request.URL)
+                    //println(NSString(data: data, encoding: NSUTF8StringEncoding))
+                var err: NSError?
+                var json = NSJSONSerialization.JSONObjectWithData(data, options: .MutableLeaves, error: &err) as? NSDictionary
+                
+                if(err != nil) {
+                    println(err!.localizedDescription)
+                    let jsonStr = NSString(data: data, encoding: NSUTF8StringEncoding)
+                    println("Error could not parse JSON: '\(jsonStr)'")
                 }
                 else {
-                    // Woa, okay the json object was nil, something went worng. Maybe the server isn't running?
-                    let jsonStr = NSString(data: data, encoding: NSUTF8StringEncoding)
-                    println("Error could not parse JSON: \(jsonStr)")
-                    dispatch_semaphore_signal(done);
+                    if(url == self.latestCurrencyURL){
+                        self.didGetLatestCurrency(json)
+                    }else if(url == self.currenciesNAmesURL){
+                        self.didGetCurrencyNames(json)
+                    }
                 }
-            }
+                
+                
+            })
+            task.resume()
         }
         
-        task.resume() //resumes the http request
-        dispatch_semaphore_wait(done, DISPATCH_TIME_FOREVER); //dispatch semaphone
+        let urls = [currenciesNAmesURL,latestCurrencyURL]
+        
+        var fulfilledUrls: Array<String> = []
+        
+        let group = dispatch_group_create();
+        
+        for url in urls {
+            dispatch_group_enter(group)
+            
+            sendRequest(url, {
+                () in
+                fulfilledUrls.append(url)
+                dispatch_group_leave(group)
+            })
+            
+        }
+        
+        dispatch_group_wait(group, DISPATCH_TIME_FOREVER);
+        
         return true
+    }
+    
+    /// did get latest currency values
+    func didGetLatestCurrency(response: NSDictionary!){
+        if let parseJSON = response {
+            // Okay, the parsedJSON is here, let's get the value for 'rates' out of it
+            let ratesArray = parseJSON["rates"] as! NSDictionary
+            for (rateName, rate) in ratesArray {
+                let id = rateName as! NSString
+                var favorite = false
+                if(id == "GBP" || id == "EUR" || id == "JPY" || id  == "BRL"){//default currencies
+                    favorite = true
+                }
+                let currencyName = currencies.currenciesNames.valueForKey(id as String) as! String
+                
+                var currency = Currency(id: id as! String, rate: rate as! Double, favorite: favorite, name: currencyName as String)
+                currencies.currencies.append(currency)
+            }
+        }
+        else {
+            // Woa, okay the json object was nil, something went worng. Maybe the server isn't running?
+            println("Error could not parse JSON")
+        }
+    }
+    
+    /// did get currency names
+    func didGetCurrencyNames(response: NSDictionary!){
+        var currenciesTemp = currencies.currencies
+        if let parseJSON = response {
+            // Okay, the parsedJSON is here, let's get the value for 'rates' out of it
+            let ratesArray = parseJSON as NSDictionary
+            currencies.currenciesNames = ratesArray
+        }
+        else {
+            // Woa, okay the json object was nil, something went worng. Maybe the server isn't running?
+            println("Error could not parse JSON")
+        }
     }
 
     func applicationWillResignActive(application: UIApplication) {
