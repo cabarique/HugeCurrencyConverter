@@ -12,6 +12,7 @@
 		DA602EAC1B30F778008B2FCA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA602EAB1B30F778008B2FCA /* Images.xcassets */; };
 		DA602EAF1B30F778008B2FCA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA602EAD1B30F778008B2FCA /* LaunchScreen.xib */; };
 		DA602EBB1B30F778008B2FCA /* HugeCurrencyConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA602EBA1B30F778008B2FCA /* HugeCurrencyConverterTests.swift */; };
+		DA8531561B35B00900B4D3FA /* CurrencySelectorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8531551B35B00900B4D3FA /* CurrencySelectorController.swift */; };
 		DAC0FAB81B311C3400BC271D /* CurrencyConverterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC0FAB71B311C3400BC271D /* CurrencyConverterViewController.swift */; };
 		DAC0FABC1B311D2B00BC271D /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC0FABB1B311D2B00BC271D /* Currency.swift */; };
 		DAC0FAC11B31202B00BC271D /* BRL.png in Resources */ = {isa = PBXBuildFile; fileRef = DAC0FABD1B31202B00BC271D /* BRL.png */; };
@@ -41,6 +42,7 @@
 		DA602EB41B30F778008B2FCA /* HugeCurrencyConverterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HugeCurrencyConverterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA602EB91B30F778008B2FCA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DA602EBA1B30F778008B2FCA /* HugeCurrencyConverterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HugeCurrencyConverterTests.swift; sourceTree = "<group>"; };
+		DA8531551B35B00900B4D3FA /* CurrencySelectorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencySelectorController.swift; sourceTree = "<group>"; };
 		DAC0FAB71B311C3400BC271D /* CurrencyConverterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyConverterViewController.swift; sourceTree = "<group>"; };
 		DAC0FABB1B311D2B00BC271D /* Currency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		DAC0FABD1B31202B00BC271D /* BRL.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BRL.png; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 			children = (
 				DA602EA41B30F778008B2FCA /* AppDelegate.swift */,
 				DAC0FAB71B311C3400BC271D /* CurrencyConverterViewController.swift */,
+				DA8531551B35B00900B4D3FA /* CurrencySelectorController.swift */,
 				DAC0FABB1B311D2B00BC271D /* Currency.swift */,
 				DA602EA81B30F778008B2FCA /* Main.storyboard */,
 				DA602EAB1B30F778008B2FCA /* Images.xcassets */,
@@ -238,6 +241,7 @@
 			files = (
 				DAC0FABC1B311D2B00BC271D /* Currency.swift in Sources */,
 				DAC0FAB81B311C3400BC271D /* CurrencyConverterViewController.swift in Sources */,
+				DA8531561B35B00900B4D3FA /* CurrencySelectorController.swift in Sources */,
 				DA602EA51B30F778008B2FCA /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

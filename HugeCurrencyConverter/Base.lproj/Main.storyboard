@@ -1,11 +1,35 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="rAC-LB-mqh">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Currency Converter Controller-->
+        <!--Navigation Controller-->
+        <scene sceneID="o0G-tI-8x8">
+            <objects>
+                <navigationController id="rAC-LB-mqh" sceneMemberID="viewController">
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" shadowImage="I" id="A1S-w7-zQ4">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.87450980389999999" green="0.1764705882" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.87450980389999999" green="0.1764705882" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="21I-yh-nri"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dKE-rG-qsx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-61" y="504"/>
+        </scene>
+        <!--HUGE Currency Converter-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
                 <viewController id="vXZ-lx-hvc" customClass="CurrencyConverterController" customModule="HugeCurrencyConverter" customModuleProvider="target" sceneMemberID="viewController">
@@ -14,28 +38,33 @@
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Dv1-7x-6xy">
-                                <rect key="frame" x="166" y="28" width="171" height="30"/>
-                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad" enablesReturnKeyAutomatically="YES"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Dv1-7x-6xy">
+                                <rect key="frame" x="109" y="50" width="213" height="40"/>
+                                <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.87843137250000003" green="0.1764705882" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="42"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="go" enablesReturnKeyAutomatically="YES"/>
                                 <connections>
                                     <action selector="valueChanged:" destination="vXZ-lx-hvc" eventType="editingChanged" id="z0T-yh-IXN"/>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="MM8-OW-68C"/>
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="$" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9fW-3t-MUy">
-                                <rect key="frame" x="345" y="33" width="30" height="21"/>
+                                <rect key="frame" x="330" y="60" width="30" height="21"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" red="0.87843137250000003" green="0.1764705882" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleAspectFit" ambiguous="YES" misplaced="YES" bounces="NO" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" sectionIndexMinimumDisplayRowCount="4" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="cW1-fr-Uje">
-                                <rect key="frame" x="27" y="116" width="332" height="178"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleAspectFit" ambiguous="YES" misplaced="YES" bounces="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="cW1-fr-Uje">
+                                <rect key="frame" x="27" y="136" width="332" height="178"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="sectionIndexColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="sectionIndexBackgroundColor" red="0.81960784310000001" green="0.1647058824" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="separatorColor" red="0.82352941176470584" green="0.82352941176470584" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="sectionIndexColor" red="0.81960784310000001" green="0.1647058824" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="sectionIndexBackgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="sectionIndexTrackingBackgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="currencyCell" editingAccessoryType="detailButton" textLabel="hTW-Xd-wzp" detailTextLabel="XbY-2X-0cE" style="IBUITableViewCellStyleValue1" id="cHf-9c-leg">
                                         <rect key="frame" x="0.0" y="0.0" width="332" height="44"/>
@@ -43,21 +72,31 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cHf-9c-leg" id="CEV-wD-A7a">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hTW-Xd-wzp">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="topRight" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hTW-Xd-wzp">
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="16"/>
-                                                    <color key="textColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" red="0.87843137250000003" green="0.1764705882" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="XbY-2X-0cE">
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="110" contentMode="bottomLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" restorationIdentifier="countryCurrency" text="United States Dollar" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TvN-u0-wjN">
+                                                    <rect key="frame" x="72" y="30" width="212" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" id="XbY-2X-0cE">
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="16"/>
-                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" red="0.87843137250000003" green="0.1764705882" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <color key="backgroundColor" red="0.85098039215686272" green="0.85098039215686272" blue="0.85098039215686272" alpha="1" colorSpace="calibratedRGB"/>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.81960784310000001" green="0.1647058824" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <segue destination="fRm-6x-NHg" kind="show" identifier="currencyList" id="N8u-xV-kVs"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -66,39 +105,54 @@
                                 </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="USD" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Jm-hc-uW5">
-                                <rect key="frame" x="27" y="44" width="36" height="21"/>
+                                <rect key="frame" x="109" y="28" width="36" height="21"/>
                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-Bold" family="Avenir Next Condensed" pointSize="13"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" red="0.87450980392156863" green="0.17647058823529413" blue="0.47450980392156861" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Exchange Rates" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Be-j8-BFh">
-                                <rect key="frame" x="27" y="87" width="167" height="21"/>
+                                <rect key="frame" x="27" y="107" width="167" height="21"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="17"/>
-                                <color key="textColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.87450980389999999" green="0.1764705882" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Amount:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="McA-VW-FQe">
+                                <rect key="frame" x="27" y="58" width="65" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="US Dollar" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PS9-zm-Zlx">
+                                <rect key="frame" x="109" y="13" width="73" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="USD.png" translatesAutoresizingMaskIntoConstraints="NO" id="M8z-uk-tOB">
-                                <rect key="frame" x="27" y="28" width="25" height="20"/>
+                                <rect key="frame" x="53" y="11" width="48" height="38"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="25" id="4r8-m7-obp"/>
-                                    <constraint firstAttribute="height" constant="20" id="A3Q-G4-daP"/>
+                                    <constraint firstAttribute="width" constant="50" id="4r8-m7-obp"/>
+                                    <constraint firstAttribute="height" constant="40" id="A3Q-G4-daP"/>
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.8784313725490196" green="0.17647058823529413" blue="0.47450980392156861" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.88627450980392153" green="0.88627450980392153" blue="0.88627450980392153" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="M8z-uk-tOB" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="20" id="4Ut-8v-SbQ"/>
-                            <constraint firstItem="0Jm-hc-uW5" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="20" id="5Rv-wY-nR2"/>
-                            <constraint firstItem="M8z-uk-tOB" firstAttribute="centerX" secondItem="0Jm-hc-uW5" secondAttribute="centerX" id="DGZ-QK-zIQ"/>
+                            <constraint firstItem="9fW-3t-MUy" firstAttribute="leading" secondItem="Dv1-7x-6xy" secondAttribute="trailing" constant="8" id="2np-AR-caD"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="cW1-fr-Uje" secondAttribute="bottom" id="6bj-eM-yGj"/>
+                            <constraint firstItem="0Jm-hc-uW5" firstAttribute="leading" secondItem="PS9-zm-Zlx" secondAttribute="leading" id="CIT-rJ-1Os"/>
+                            <constraint firstItem="Dv1-7x-6xy" firstAttribute="leading" secondItem="McA-VW-FQe" secondAttribute="trailing" constant="17" id="GWD-3y-Wvt"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="9fW-3t-MUy" secondAttribute="trailing" constant="5" id="IHD-nZ-Ira"/>
                             <constraint firstItem="3Be-j8-BFh" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="27" id="MmM-q2-GU0"/>
-                            <constraint firstItem="Dv1-7x-6xy" firstAttribute="baseline" secondItem="9fW-3t-MUy" secondAttribute="baseline" id="Rp6-aO-Y9A"/>
-                            <constraint firstItem="Dv1-7x-6xy" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="0Jm-hc-uW5" secondAttribute="trailing" constant="15" id="RxE-Xp-ZcS"/>
                             <constraint firstItem="cW1-fr-Uje" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="SjG-NT-x0z"/>
-                            <constraint firstItem="9fW-3t-MUy" firstAttribute="leading" secondItem="Dv1-7x-6xy" secondAttribute="trailing" constant="8" id="WdK-oL-KaA"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="9fW-3t-MUy" secondAttribute="trailing" constant="-5" id="sxz-ZA-Kut"/>
+                            <constraint firstItem="McA-VW-FQe" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="11" id="W8c-kM-bCh"/>
+                            <constraint firstItem="0Jm-hc-uW5" firstAttribute="leading" secondItem="M8z-uk-tOB" secondAttribute="trailing" constant="8" id="qM9-zc-Dfy"/>
+                            <constraint firstItem="PS9-zm-Zlx" firstAttribute="leading" secondItem="M8z-uk-tOB" secondAttribute="trailing" constant="8" id="rIX-Gx-HvH"/>
                             <constraint firstAttribute="trailing" secondItem="cW1-fr-Uje" secondAttribute="trailing" id="unc-sQ-R3b"/>
+                            <constraint firstItem="cW1-fr-Uje" firstAttribute="top" secondItem="3Be-j8-BFh" secondAttribute="bottom" constant="8" id="w8B-rL-Sm9"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="HUGE Currency Converter" id="1SG-q6-kih"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
@@ -112,8 +166,49 @@
             </objects>
             <point key="canvasLocation" x="516.5" y="503.5"/>
         </scene>
+        <!--Currency Selector Controller-->
+        <scene sceneID="oBV-GQ-AIe">
+            <objects>
+                <tableViewController id="fRm-6x-NHg" customClass="CurrencySelectorController" customModule="HugeCurrencyConverter" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" allowsSelectionDuringEditing="YES" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="qYr-Zd-ZMW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="sectionIndexBackgroundColor" red="0.85098039219999999" green="0.85098039219999999" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="sectionIndexTrackingBackgroundColor" red="0.85098039219999999" green="0.85098039219999999" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" showsReorderControl="YES" indentationWidth="10" reuseIdentifier="currencyCell" textLabel="DTP-yk-TdA" style="IBUITableViewCellStyleDefault" id="Nzo-jb-Gis">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Nzo-jb-Gis" id="VQg-R5-wTh">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="DTP-yk-TdA">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" red="0.87450980389999999" green="0.1764705882" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" red="0.85098039219999999" green="0.85098039219999999" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.85098039219999999" green="0.85098039219999999" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="fRm-6x-NHg" id="GGU-UI-es9"/>
+                            <outlet property="delegate" destination="fRm-6x-NHg" id="HZe-vc-lZB"/>
+                        </connections>
+                    </tableView>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fNs-uH-XAf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1083.5" y="503.5"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="I" width="48" height="48"/>
         <image name="USD.png" width="48" height="48"/>
     </resources>
+    <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
 </document>

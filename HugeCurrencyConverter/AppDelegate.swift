@@ -12,9 +12,11 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    
-    var currencies = [Currency]()
     var base = "USD" //Current base is USD
+    
+    struct currencies {
+        static var currencies = [Currency]()
+    }
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
@@ -23,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         var done = dispatch_semaphore_create(0);
         
         let task = NSURLSession.sharedSession().dataTaskWithURL(url!) {(data, response, error) in
-            println(NSString(data: data, encoding: NSUTF8StringEncoding))
+            //println(NSString(data: data, encoding: NSUTF8StringEncoding))
             var err: NSError?
             var json = NSJSONSerialization.JSONObjectWithData(data, options: .MutableLeaves, error: &err) as? NSDictionary
             
@@ -31,21 +33,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 println(err!.localizedDescription)
                 let jsonStr = NSString(data: data, encoding: NSUTF8StringEncoding)
                 println("Error could not parse JSON: '\(jsonStr)'")
+                    dispatch_semaphore_signal(done);
             }
             else {
                 if let parseJSON = json {
                     // Okay, the parsedJSON is here, let's get the value for 'rates' out of it
-                    let ratesArray = parseJSON["rates"] as NSDictionary
+                    let ratesArray = parseJSON["rates"] as! NSDictionary
                     for (rateName, rate) in ratesArray {
-                        let id = rateName as NSString
+                        let id = rateName as! NSString
+                        var favorite = false
                         if(id == "GBP" || id == "EUR" || id == "JPY" || id  == "BRL"){
-                            let currency = Currency(id: id, rate: rate as Double)
-                            self.currencies.append(currency)
+                            favorite = true
                         }
+                        var currency = Currency(id: id as String, rate: rate as! Double, favorite: favorite)
+                        currencies.currencies.append(currency)
                     }
                     
-                    let currencyController = self.window?.rootViewController as CurrencyConverterController
-                    currencyController.currencies = self.currencies
+                    //let currencyController = self.window?.rootViewController as! CurrencyConverterController
+                    //currencyController.currencies = self.currencies
                     
                     dispatch_semaphore_signal(done);
                 }
@@ -62,16 +67,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         dispatch_semaphore_wait(done, DISPATCH_TIME_FOREVER); //dispatch semaphone
         return true
     }
-    
-    
-    func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-        println("entro")
-        let itemDetailViewController = segue.destinationViewController as CurrencyConverterController
-        itemDetailViewController.currencies = self.currencies
-        
-    }
-    
-    
 
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

@@ -12,4 +12,5 @@ import Foundation
 struct Currency {
     let id: String
     let rate: Double
+    var favorite: Bool
 }
