@@ -16,3 +16,10 @@ The results for each currency.
 
 ###Expected Output ­ Bonus
 A chart displaying the results for each currency. Each result should update the screen as each value is returned from the api call. Each bar should animate from a value of 0 to its value.
+
+##Instalation Instructions
+1. Get source code
+  - download from https://github.com/cabarique/HugeCurrencyConverter/archive/master.zip
+  - or ```git clone http://github.com/cabarique/HugeCurrencyConverter.git```
+2. open project HugeCurrencyConverter.xcodeproj with xcode
+3. run with your preferred ios phone

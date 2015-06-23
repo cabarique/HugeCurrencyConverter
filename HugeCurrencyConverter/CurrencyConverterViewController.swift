@@ -85,8 +85,6 @@ class CurrencyConverterController: UIViewController, UITableViewDelegate, UITabl
         cell.imageView?.image = image
         var label = cell.viewWithTag(110) as! UILabel
         label.text = currency.name
-        //label.text = "\(label.frame.origin.x) \(label.frame.origin.y) \(currency.id)"
-        //label.frame.origin = CGPoint(x: 15, y: 15)
         
         return cell
     }

@@ -8,6 +8,7 @@
 
 import UIKit
 import XCTest
+import HugeCurrencyConverter
 
 class HugeCurrencyConverterTests: XCTestCase {
     
@@ -31,6 +32,10 @@ class HugeCurrencyConverterTests: XCTestCase {
         self.measureBlock() {
             // Put the code you want to measure the time of here.
         }
+    }
+    
+    func applicationLaunches(){
+        
     }
     
 }
